@@ -1,6 +1,6 @@
 package DP;
 public class climbingStairs {
-    public int climbingStairs(int n){
+    public int climbingStairs2(int n){
         if (n == 0 || n == 1) {
             return 1;
         }
@@ -11,6 +11,8 @@ public class climbingStairs {
             dp[i]=dp[i-1]+dp[i-2];
         }
         return dp[n];
+    }
+    
         //  if (n == 0 || n == 1) {
         //     return 1;
         // }
@@ -27,26 +29,19 @@ public class climbingStairs {
         
         // return current;
 
-// public int climbStairs(int n) {
-//         int[] memo = new int[n + 1];
-//         return climbStairsMemo(n, memo);
-//     }
-    
-//     private int climbStairsMemo(int n, int[] memo) {
-//         if (n == 0 || n == 1) {
-//             return 1;
-//         }
+public int climbStairs(int n) {
+     if (n <= 1) return 1;
         
-//         if (memo[n] != 0) {
-//             return memo[n];
-//         }
-        
-//         memo[n] = climbStairsMemo(n - 1, memo) + climbStairsMemo(n - 2, memo);
-//         return memo[n];
+    int[] memo = new int[n + 1];
+    memo[0] = 1;
+    memo[1] = 1;
 
+    for (int i = 2; i <= n; i++) {
+        memo[i] = memo[i - 1] + memo[i - 2];
+    }
 
-        
-   }
+    return memo[n];
+}
     public static void main(String[] args) {
         
     }
